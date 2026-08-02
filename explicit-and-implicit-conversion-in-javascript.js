@@ -19,14 +19,48 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
-console.log("The result is: " + result);
+let result = Number("5") - 2; // Explicitly setting the string to a number type 
+console.log("The result is: " + result); // Output of the operation is a number type
 
-let isValid = Boolean("false");
+let isValid = false; // Boolean of any string evaluates to a truthy, so set it to false
 if (isValid) {
-    console.log("This is valid!");
+    console.log("This is valid!"); // Now that isValid = false, it evaluates to a falsy
 }
 
-let age = "25";
-let totalAge = age + 5;
-console.log("Total Age: " + totalAge);
+let age = Number("25"); // Convert the string age to a number data type 
+let totalAge = age + 5; 
+console.log("Total Age: " + totalAge); // Number + a number = number data type
+
+// My Own Code
+console.log("")
+console.log("")
+console.log("Before type conversion:");
+
+// Implicit type conversion
+// JavaScript implicitly converts the string the number zero to a string, so the addition operator can act on it
+let distance = "50" + 0; 
+console.log("Today's running distance is " + distance + " meters"); // The output is a string data type
+
+distance = "five hundred"; 
+let teamRun = Number(distance); // If I have a string but try to convert it to a number, it becomes NaN
+if (teamRun) { 
+  console.log("The sprinters are practicing the 4x4 event");
+} 
+else { // Now, the boolean will evaluate to false since it's a NaN value
+  console.log("The sprinters are practicing the 100 meter dash")
+}
+
+console.log("")
+console.log("")
+console.log("After type conversion:");
+// Explicitly converting the string to a number type
+distance = Number("400") - 0; 
+console.log("Today's running distance is " + distance + " meters"); // The output is a number data type
+
+teamRun = distance > 100; // If distance is greater than 100, then it evalauates to true
+if (teamRun) { 
+  console.log("The sprinters are practicing the 4x4 event");
+} 
+else { // If distance is not greater than 100, then it evaluates to false
+  console.log("The sprinters are practicing the 100 meter dash")
+}
